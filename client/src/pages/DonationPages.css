@@ -1,0 +1,1789 @@
+
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap");
+
+.kindora-page {
+  --kd-bg: #08090b;
+  --kd-surface: #111216;
+  --kd-surface-2: #17181e;
+  --kd-border: rgba(255, 255, 255, 0.09);
+  --kd-text: #f6f4f5;
+  --kd-muted: #92919b;
+  --kd-red: #e5485d;
+  --kd-pink: #ff7185;
+  min-height: 100vh;
+  color: var(--kd-text);
+  background:
+    radial-gradient(ellipse at 85% 0%, rgba(229, 72, 93, 0.07), transparent 30%),
+    var(--kd-bg);
+  font-family: "DM Sans", sans-serif;
+  overflow: hidden;
+}
+
+.kindora-page *,
+.kindora-page *::before,
+.kindora-page *::after {
+  box-sizing: border-box;
+}
+
+.kindora-page a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.kindora-page button,
+.kindora-page input,
+.kindora-page select {
+  font: inherit;
+}
+
+.kindora-page button,
+.kindora-page a,
+.kindora-page select {
+  -webkit-tap-highlight-color: transparent;
+}
+
+.kindora-page button:focus-visible,
+.kindora-page a:focus-visible,
+.kindora-page input:focus-visible,
+.kindora-page select:focus-visible {
+  outline: 2px solid var(--kd-pink);
+  outline-offset: 4px;
+}
+
+.kindora-topbar {
+  width: min(1240px, calc(100% - 64px));
+  min-height: 86px;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 28px;
+  border-bottom: 1px solid var(--kd-border);
+}
+
+.kindora-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  font: 800 25px "Manrope", sans-serif;
+  letter-spacing: -1.2px;
+  white-space: nowrap;
+}
+
+.kindora-brand-icon {
+  display: grid;
+  place-items: center;
+  width: 35px;
+  height: 35px;
+  border-radius: 12px;
+  color: white;
+  background: linear-gradient(140deg, var(--kd-pink), #c62e48);
+  box-shadow: 0 5px 25px rgba(229, 72, 93, 0.25);
+  font-size: 19px;
+}
+
+.kindora-brand-dot,
+.kindora-section-heading h2 span,
+.kindora-dashboard-section-title h2 span {
+  color: var(--kd-pink);
+}
+
+.kindora-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 34px;
+}
+
+.kindora-nav a {
+  position: relative;
+  padding: 12px 0;
+  color: #aaa9b2;
+  font-size: 13px;
+  transition: color 0.2s ease;
+}
+
+.kindora-nav a:hover,
+.kindora-nav a.active {
+  color: white;
+}
+
+.kindora-nav a.active::after {
+  position: absolute;
+  right: 0;
+  bottom: -1px;
+  left: 0;
+  height: 2px;
+  background: var(--kd-pink);
+  content: "";
+}
+
+.kindora-nav-cta {
+  padding: 12px 17px;
+  border: 1px solid rgba(255, 113, 133, 0.3);
+  border-radius: 10px;
+  background: rgba(229, 72, 93, 0.08);
+  font-size: 12px;
+  font-weight: 700;
+  transition: 0.25s ease;
+  white-space: nowrap;
+}
+
+.kindora-nav-cta span {
+  margin-left: 10px;
+  color: var(--kd-pink);
+}
+
+.kindora-nav-cta:hover {
+  border-color: var(--kd-pink);
+  background: rgba(229, 72, 93, 0.16);
+  transform: translateY(-2px);
+}
+
+.kindora-hero,
+.kindora-dashboard-hero {
+  width: min(1240px, calc(100% - 64px));
+  min-height: 440px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  align-items: center;
+  gap: 36px;
+  padding: 55px 0 65px;
+}
+
+.kindora-hero-content,
+.kindora-dashboard-welcome {
+  position: relative;
+  z-index: 1;
+  animation: kd-rise 0.7s ease both;
+}
+
+.kindora-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  color: var(--kd-pink);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+.kindora-live-dot {
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  flex: 0 0 7px;
+  border-radius: 50%;
+  background: #70dfab;
+  box-shadow: 0 0 12px rgba(112, 223, 171, 0.45);
+}
+
+.kindora-hero h1,
+.kindora-dashboard-hero h1 {
+  margin: 22px 0 17px;
+  font: 800 clamp(43px, 5.2vw, 69px)/1.1 "Manrope", sans-serif;
+  letter-spacing: -3.5px;
+}
+
+.kindora-hero h1 span,
+.kindora-dashboard-hero h1 span {
+  color: var(--kd-pink);
+}
+
+.kindora-hero-content > p,
+.kindora-dashboard-welcome > p {
+  max-width: 520px;
+  margin: 0 0 28px;
+  color: var(--kd-muted);
+  font-size: 14px;
+  line-height: 1.9;
+}
+
+.kindora-primary-btn,
+.kindora-secondary-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 19px;
+  min-height: 46px;
+  padding: 0 20px;
+  border: 1px solid transparent;
+  border-radius: 9px;
+  color: white;
+  background: linear-gradient(110deg, #e5485d, #c72e49);
+  box-shadow: 0 8px 26px rgba(229, 72, 93, 0.16);
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.kindora-primary-btn:hover {
+  color: white;
+  box-shadow: 0 12px 35px rgba(229, 72, 93, 0.3);
+  transform: translateY(-3px);
+}
+
+.kindora-secondary-btn {
+  border-color: var(--kd-border);
+  background: var(--kd-surface-2);
+  box-shadow: none;
+}
+
+.kindora-secondary-btn:hover {
+  border-color: var(--kd-pink);
+}
+
+.kindora-hero-art,
+.kindora-dashboard-art {
+  position: relative;
+  display: grid;
+  min-height: 335px;
+  place-items: center;
+  overflow: hidden;
+  border: 1px solid rgba(255, 113, 133, 0.13);
+  border-radius: 30px;
+  background:
+    radial-gradient(circle at 50% 45%, rgba(229, 72, 93, 0.15), transparent 43%),
+    linear-gradient(145deg, #151218, #0d0d11 65%);
+}
+
+.kindora-art-ring,
+.kindora-dashboard-orbit {
+  position: absolute;
+  width: 245px;
+  height: 245px;
+  border: 1px solid rgba(255, 113, 133, 0.22);
+  border-radius: 50%;
+}
+
+.ring-one {
+  animation: kd-spin 24s linear infinite;
+}
+
+.ring-two {
+  width: 185px;
+  height: 185px;
+  border-style: dashed;
+  border-color: rgba(255, 113, 133, 0.32);
+  animation: kd-spin 30s linear infinite reverse;
+}
+
+.kindora-art-glow {
+  position: absolute;
+  width: 155px;
+  height: 155px;
+  border-radius: 50%;
+  background: rgba(229, 72, 93, 0.24);
+  filter: blur(55px);
+}
+
+.kindora-art-center {
+  z-index: 1;
+  display: grid;
+  width: 104px;
+  height: 104px;
+  place-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 31px;
+  color: white;
+  background: linear-gradient(145deg, #ff7185, #bd2742);
+  box-shadow: 0 0 60px rgba(229, 72, 93, 0.25);
+  font-size: 61px;
+  transform: rotate(-8deg);
+  animation: kd-float 4s ease-in-out infinite;
+}
+
+.kindora-art-spark,
+.kindora-floating-star {
+  position: absolute;
+  color: var(--kd-pink);
+  font-size: 24px;
+  animation: kd-float 4s ease-in-out infinite;
+}
+
+.spark-one {
+  top: 18%;
+  left: 25%;
+}
+
+.spark-two {
+  top: 28%;
+  right: 21%;
+  animation-delay: 1s;
+}
+
+.spark-three {
+  right: 26%;
+  bottom: 20%;
+  animation-delay: 1.6s;
+}
+
+.kindora-art-caption,
+.kindora-dashboard-art-note {
+  position: absolute;
+  right: 25px;
+  bottom: 22px;
+  left: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.kindora-art-caption span,
+.kindora-dashboard-art-note span {
+  color: var(--kd-muted);
+  font-size: 9px;
+  letter-spacing: 1.5px;
+}
+
+.kindora-art-caption strong,
+.kindora-dashboard-art-note strong {
+  font-size: 12px;
+}
+
+.kindora-impact-strip {
+  width: min(1240px, calc(100% - 64px));
+  margin: 0 auto;
+  padding: 28px 30px;
+  display: grid;
+  grid-template-columns: 0.8fr 1fr 1fr 1.4fr;
+  gap: 26px;
+  align-items: center;
+  border: 1px solid var(--kd-border);
+  border-radius: 17px;
+  background: linear-gradient(115deg, #131317, #0e0e12);
+}
+
+.kindora-impact-strip > div:not(:last-child) {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  border-right: 1px solid var(--kd-border);
+}
+
+.kindora-mini-label {
+  color: var(--kd-muted);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 1.4px;
+}
+
+.kindora-impact-strip > div > strong {
+  font: 800 24px "Manrope", sans-serif;
+}
+
+.kindora-muted {
+  color: var(--kd-muted);
+  font-size: 11px;
+  line-height: 1.6;
+}
+
+.kindora-strip-message {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.kindora-strip-heart {
+  display: grid;
+  width: 44px;
+  height: 44px;
+  flex: 0 0 44px;
+  place-items: center;
+  border: 1px solid rgba(255, 113, 133, 0.2);
+  border-radius: 13px;
+  color: var(--kd-pink);
+  background: rgba(229, 72, 93, 0.1);
+  font-size: 23px;
+}
+
+.kindora-strip-message > span:last-child {
+  display: grid;
+  gap: 6px;
+}
+
+.kindora-strip-message strong {
+  font-size: 12px;
+}
+
+.kindora-strip-message small {
+  color: var(--kd-muted);
+  font-size: 11px;
+}
+
+.kindora-campaign-section,
+.kindora-dashboard-content {
+  width: min(1240px, calc(100% - 64px));
+  margin: auto;
+  padding: 90px 0;
+}
+
+.kindora-section-heading,
+.kindora-dashboard-section-title {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 20px;
+  margin-bottom: 32px;
+}
+
+.kindora-section-heading h2,
+.kindora-dashboard-section-title h2 {
+  margin: 12px 0 8px;
+  font: 800 clamp(27px, 3vw, 38px)/1.2 "Manrope", sans-serif;
+  letter-spacing: -1.4px;
+}
+
+.kindora-section-heading p,
+.kindora-panel-heading p {
+  margin: 0;
+  color: var(--kd-muted);
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+.kindora-sort {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--kd-muted);
+  font-size: 11px;
+}
+
+.kindora-sort select {
+  min-height: 42px;
+  max-width: 180px;
+  padding: 0 30px 0 12px;
+  border: 1px solid var(--kd-border);
+  border-radius: 9px;
+  outline-offset: 3px;
+  color: var(--kd-text);
+  background: var(--kd-surface);
+  cursor: pointer;
+}
+
+.kindora-sort option {
+  color: white;
+  background: #111216;
+}
+
+.kindora-filter-row {
+  display: flex;
+  flex-direction: column;
+  gap: 19px;
+  margin-bottom: 28px;
+}
+
+.kindora-search {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: min(100%, 470px);
+  min-height: 46px;
+  padding: 0 15px;
+  border: 1px solid var(--kd-border);
+  border-radius: 10px;
+  background: #101115;
+}
+
+.kindora-search > span {
+  color: var(--kd-pink);
+  font-size: 25px;
+}
+
+.kindora-search input {
+  width: 100%;
+  border: 0;
+  outline: none;
+  color: white;
+  background: transparent;
+  font-size: 12px;
+}
+
+.kindora-search input::placeholder {
+  color: #777680;
+}
+
+.kindora-search button {
+  border: 0;
+  color: var(--kd-muted);
+  background: transparent;
+  font-size: 21px;
+  cursor: pointer;
+}
+
+.kindora-category-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
+}
+
+.kindora-category {
+  min-height: 36px;
+  padding: 0 14px;
+  border: 1px solid var(--kd-border);
+  border-radius: 8px;
+  color: #aaa9b2;
+  background: transparent;
+  font-size: 11px;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.kindora-category:hover {
+  border-color: rgba(255, 113, 133, 0.4);
+  color: white;
+}
+
+.kindora-category.active {
+  border-color: rgba(255, 113, 133, 0.55);
+  color: var(--kd-pink);
+  background: rgba(229, 72, 93, 0.11);
+}
+
+.kindora-campaign-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 22px;
+}
+
+.kindora-campaign-card {
+  min-width: 0;
+  overflow: hidden;
+  border: 1px solid var(--kd-border);
+  border-radius: 16px;
+  background: linear-gradient(145deg, #141419, #101115);
+  transition: border-color 0.25s ease, transform 0.25s ease;
+  animation: kd-rise 0.5s ease both;
+}
+
+.kindora-campaign-card:hover {
+  border-color: rgba(255, 113, 133, 0.43);
+  transform: translateY(-6px);
+}
+
+.kindora-card-image {
+  position: relative;
+  display: block;
+  height: 210px;
+  overflow: hidden;
+  background: #1b151a;
+}
+
+.kindora-card-image img,
+.kindora-history-avatar img,
+.kindora-mini-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.kindora-card-image img {
+  transition: transform 0.5s ease;
+}
+
+.kindora-campaign-card:hover .kindora-card-image img {
+  transform: scale(1.055);
+}
+
+.kindora-image-placeholder {
+  display: flex;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 12px;
+  color: var(--kd-pink);
+  background:
+    radial-gradient(circle at 50% 50%, rgba(229, 72, 93, 0.17), transparent 65%),
+    #151218;
+}
+
+.kindora-image-placeholder > span {
+  font-size: 65px;
+}
+
+.kindora-image-placeholder small {
+  color: #c0a6ac;
+  font-size: 10px;
+}
+
+.kindora-image-category,
+.kindora-featured {
+  position: absolute;
+  top: 13px;
+  left: 13px;
+  padding: 7px 10px;
+  border: 1px solid rgba(255, 255, 255, 0.17);
+  border-radius: 7px;
+  color: white;
+  background: rgba(8, 9, 11, 0.8);
+  backdrop-filter: blur(10px);
+  font-size: 10px;
+}
+
+.kindora-featured {
+  right: 13px;
+  left: auto;
+  border-color: rgba(255, 113, 133, 0.35);
+  color: #ffb3bf;
+  background: rgba(106, 30, 47, 0.78);
+}
+
+.kindora-card-body {
+  padding: 20px;
+}
+
+.kindora-card-location {
+  overflow: hidden;
+  color: var(--kd-muted);
+  font-size: 10px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.kindora-card-location span {
+  margin-right: 4px;
+  color: var(--kd-pink);
+}
+
+.kindora-card-body h3 {
+  margin: 13px 0 10px;
+  font: 700 18px/1.45 "Manrope", sans-serif;
+}
+
+.kindora-card-body h3 a:hover {
+  color: var(--kd-pink);
+}
+
+.kindora-card-description {
+  display: -webkit-box;
+  min-height: 57px;
+  margin: 0 0 23px;
+  overflow: hidden;
+  color: var(--kd-muted);
+  font-size: 11px;
+  line-height: 1.75;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+}
+
+.kindora-progress-label,
+.kindora-funding-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  font-size: 10px;
+}
+
+.kindora-progress-label {
+  margin-bottom: 10px;
+  color: var(--kd-muted);
+}
+
+.kindora-progress-label strong {
+  color: var(--kd-pink);
+}
+
+.kindora-progress-track {
+  height: 5px;
+  overflow: hidden;
+  border-radius: 10px;
+  background: #29272e;
+}
+
+.kindora-progress-track span {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, #ce354e, #ff7185);
+  transition: width 0.7s ease;
+}
+
+.kindora-funding-row {
+  margin-top: 13px;
+  color: var(--kd-muted);
+}
+
+.kindora-funding-row strong {
+  color: #f6f4f5;
+  font-weight: 700;
+}
+
+.kindora-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-top: 20px;
+  padding-top: 15px;
+  border-top: 1px solid var(--kd-border);
+  color: var(--kd-muted);
+  font-size: 10px;
+}
+
+.kindora-card-action {
+  color: var(--kd-pink) !important;
+  font-weight: 700;
+}
+
+.kindora-card-action span {
+  margin-left: 5px;
+  transition: margin 0.2s ease;
+}
+
+.kindora-card-action:hover span {
+  margin-left: 10px;
+}
+
+.kindora-state {
+  display: flex;
+  min-height: 270px;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 12px;
+  padding: 35px;
+  border: 1px solid var(--kd-border);
+  border-radius: 16px;
+  text-align: center;
+  background: var(--kd-surface);
+}
+
+.kindora-state h3 {
+  margin: 5px 0 0;
+  font-size: 18px;
+}
+
+.kindora-state p {
+  max-width: 420px;
+  margin: 0 0 8px;
+  color: var(--kd-muted);
+  font-size: 12px;
+  line-height: 1.8;
+}
+
+.kindora-error > span {
+  display: grid;
+  width: 40px;
+  height: 40px;
+  place-items: center;
+  border-radius: 50%;
+  color: #ff9ca9;
+  background: rgba(229, 72, 93, 0.15);
+  font-size: 20px;
+}
+
+.kindora-loader {
+  width: 31px;
+  height: 31px;
+  border: 3px solid #333038;
+  border-top-color: var(--kd-pink);
+  border-radius: 50%;
+  animation: kd-spin 0.8s linear infinite;
+}
+
+.kindora-empty-icon {
+  color: var(--kd-pink);
+  font-size: 42px;
+}
+
+.kindora-bottom-cta {
+  width: min(1240px, calc(100% - 64px));
+  margin: 0 auto 80px;
+  padding: 32px;
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  border: 1px solid rgba(255, 113, 133, 0.17);
+  border-radius: 18px;
+  background:
+    radial-gradient(ellipse at 0% 50%, rgba(229, 72, 93, 0.12), transparent 60%),
+    #111115;
+}
+
+.kindora-cta-heart {
+  display: grid;
+  width: 64px;
+  height: 64px;
+  flex: 0 0 64px;
+  place-items: center;
+  border: 1px solid rgba(255, 113, 133, 0.24);
+  border-radius: 17px;
+  color: var(--kd-pink);
+  background: rgba(229, 72, 93, 0.1);
+  font-size: 37px;
+}
+
+.kindora-bottom-cta h2 {
+  margin: 7px 0;
+  font: 800 23px "Manrope", sans-serif;
+}
+
+.kindora-bottom-cta p {
+  margin: 0;
+  color: var(--kd-muted);
+  font-size: 11px;
+}
+
+.kindora-bottom-cta > .kindora-primary-btn {
+  margin-left: auto;
+  white-space: nowrap;
+}
+
+.kindora-footer {
+  width: min(1240px, calc(100% - 64px));
+  min-height: 95px;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  border-top: 1px solid var(--kd-border);
+}
+
+.kindora-footer .kindora-brand {
+  font-size: 20px;
+}
+
+.kindora-footer .kindora-brand-icon {
+  width: 29px;
+  height: 29px;
+  border-radius: 9px;
+  font-size: 15px;
+}
+
+.kindora-footer p,
+.kindora-footer > span {
+  color: var(--kd-muted);
+  font-size: 10px;
+}
+
+/* DASHBOARD */
+
+.kindora-dashboard-hero {
+  min-height: 365px;
+  padding-bottom: 45px;
+}
+
+.kindora-dashboard-hero h1 {
+  font-size: clamp(40px, 4.6vw, 60px);
+}
+
+.kindora-dashboard-art {
+  min-height: 275px;
+}
+
+.kindora-dashboard-orbit {
+  width: 210px;
+  height: 210px;
+}
+
+.kindora-dashboard-orbit.orbit-b {
+  width: 155px;
+  height: 155px;
+  border-style: dashed;
+  animation: kd-spin 30s linear infinite reverse;
+}
+
+.kindora-dashboard-heart {
+  display: grid;
+  width: 100px;
+  height: 100px;
+  place-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 30px;
+  color: white;
+  background: linear-gradient(145deg, #ff7185, #c32c48);
+  box-shadow: 0 0 65px rgba(229, 72, 93, 0.25);
+  font-size: 53px;
+  animation: kd-float 4s ease-in-out infinite;
+}
+
+.star-a {
+  top: 20%;
+  left: 24%;
+}
+
+.star-b {
+  top: 25%;
+  right: 22%;
+  animation-delay: 1s;
+}
+
+.star-c {
+  right: 28%;
+  bottom: 24%;
+  animation-delay: 1.7s;
+}
+
+.kindora-dashboard-content {
+  padding-top: 15px;
+}
+
+.kindora-dashboard-section-title {
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.kindora-dashboard-section-title h2 {
+  font-size: 29px;
+}
+
+.kindora-live-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 12px;
+  border: 1px solid var(--kd-border);
+  border-radius: 8px;
+  color: #b9b8c1;
+  font-size: 10px;
+  white-space: nowrap;
+}
+
+.kindora-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 17px;
+  margin-bottom: 35px;
+}
+
+.kindora-stat-card {
+  position: relative;
+  min-height: 164px;
+  padding: 22px;
+  overflow: hidden;
+  border: 1px solid var(--kd-border);
+  border-radius: 14px;
+  background: linear-gradient(145deg, #15151a, #101115);
+  transition: transform 0.25s ease, border-color 0.25s ease;
+}
+
+.kindora-stat-card:hover {
+  border-color: rgba(255, 113, 133, 0.35);
+  transform: translateY(-4px);
+}
+
+.kindora-stat-card.stat-primary {
+  border-color: rgba(255, 113, 133, 0.28);
+  background:
+    radial-gradient(ellipse at 100% 0%, rgba(229, 72, 93, 0.17), transparent 65%),
+    linear-gradient(145deg, #1a1318, #111115);
+}
+
+.kindora-stat-top {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  color: #b5b3bd;
+  font-size: 11px;
+}
+
+.kindora-stat-icon {
+  display: grid;
+  width: 33px;
+  height: 33px;
+  flex: 0 0 33px;
+  place-items: center;
+  border: 1px solid rgba(255, 113, 133, 0.2);
+  border-radius: 10px;
+  color: var(--kd-pink);
+  background: rgba(229, 72, 93, 0.1);
+  font-size: 15px;
+}
+
+.kindora-stat-card > strong {
+  position: relative;
+  z-index: 1;
+  display: block;
+  margin: 20px 0 8px;
+  font: 800 clamp(23px, 2.3vw, 31px) "Manrope", sans-serif;
+  letter-spacing: -1px;
+  font-variant-numeric: tabular-nums;
+}
+
+.kindora-stat-card > p {
+  position: relative;
+  z-index: 1;
+  margin: 0;
+  color: var(--kd-muted);
+  font-size: 10px;
+  line-height: 1.6;
+}
+
+.kindora-stat-decoration {
+  position: absolute;
+  right: 10px;
+  bottom: -25px;
+  color: rgba(255, 113, 133, 0.045);
+  font: 800 110px "Manrope", sans-serif;
+  pointer-events: none;
+}
+
+.kindora-dashboard-main-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.65fr) minmax(270px, 0.8fr);
+  align-items: start;
+  gap: 22px;
+}
+
+.kindora-panel {
+  min-width: 0;
+  overflow: hidden;
+  border: 1px solid var(--kd-border);
+  border-radius: 15px;
+  background: linear-gradient(145deg, #141419, #101115);
+}
+
+.kindora-donation-panel {
+  padding: 24px;
+}
+
+.kindora-panel-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+}
+
+.kindora-panel-heading h2 {
+  margin: 9px 0 7px;
+  font: 800 20px "Manrope", sans-serif;
+  letter-spacing: -0.6px;
+}
+
+.kindora-history-count {
+  padding: 8px 10px;
+  border: 1px solid var(--kd-border);
+  border-radius: 7px;
+  color: #b7b5bf;
+  font-size: 10px;
+  white-space: nowrap;
+}
+
+.kindora-history-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 23px 0 8px;
+  padding-bottom: 17px;
+  border-bottom: 1px solid var(--kd-border);
+}
+
+.kindora-history-filter {
+  padding: 8px 12px;
+  border: 1px solid transparent;
+  border-radius: 7px;
+  color: var(--kd-muted);
+  background: transparent;
+  font-size: 10px;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.kindora-history-filter:hover {
+  color: white;
+}
+
+.kindora-history-filter.active {
+  border-color: rgba(255, 113, 133, 0.3);
+  color: var(--kd-pink);
+  background: rgba(229, 72, 93, 0.1);
+}
+
+.kindora-history-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.kindora-history-item {
+  display: flex;
+  min-width: 0;
+  align-items: center;
+  gap: 13px;
+  padding: 17px 0;
+  border-bottom: 1px solid var(--kd-border);
+}
+
+.kindora-history-item:last-child {
+  border-bottom: 0;
+}
+
+.kindora-history-avatar {
+  display: grid;
+  width: 47px;
+  height: 47px;
+  flex: 0 0 47px;
+  place-items: center;
+  overflow: hidden;
+  border: 1px solid rgba(255, 113, 133, 0.17);
+  border-radius: 12px;
+  color: var(--kd-pink);
+  background: #21161c;
+  font-size: 23px;
+}
+
+.kindora-history-details {
+  display: flex;
+  min-width: 0;
+  flex: 1;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.kindora-history-details > strong {
+  overflow: hidden;
+  font-size: 11px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.kindora-history-details > span {
+  color: var(--kd-muted);
+  font-size: 10px;
+}
+
+.kindora-history-details .kindora-history-receipt {
+  overflow: hidden;
+  max-width: 260px;
+  color: #777680;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.kindora-history-amount {
+  display: flex;
+  align-items: flex-end;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.kindora-history-amount > strong {
+  font-size: 12px;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.kindora-status {
+  padding: 5px 8px;
+  border-radius: 6px;
+  font-size: 9px;
+  text-transform: capitalize;
+}
+
+.kindora-status.completed {
+  color: #8be2b8;
+  background: rgba(67, 180, 127, 0.11);
+}
+
+.kindora-status.pending {
+  color: #f2c779;
+  background: rgba(222, 166, 59, 0.1);
+}
+
+.kindora-status.failed {
+  color: #ff8796;
+  background: rgba(229, 72, 93, 0.11);
+}
+
+.kindora-history-link {
+  display: grid;
+  width: 27px;
+  height: 27px;
+  flex: 0 0 27px;
+  place-items: center;
+  border: 1px solid var(--kd-border);
+  border-radius: 7px;
+  color: var(--kd-pink) !important;
+  font-size: 12px;
+  transition: 0.2s ease;
+}
+
+.kindora-history-link:hover {
+  border-color: var(--kd-pink);
+  background: rgba(229, 72, 93, 0.1);
+}
+
+.kindora-history-empty {
+  display: flex;
+  min-height: 230px;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 12px;
+  padding: 25px;
+  text-align: center;
+}
+
+.kindora-history-empty > span {
+  color: var(--kd-pink);
+  font-size: 39px;
+}
+
+.kindora-history-empty h3 {
+  margin: 0;
+  font: 700 16px "Manrope", sans-serif;
+}
+
+.kindora-history-empty p {
+  max-width: 320px;
+  margin: 0 0 5px;
+  color: var(--kd-muted);
+  font-size: 11px;
+  line-height: 1.8;
+}
+
+.kindora-side-column {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.kindora-journey-panel {
+  position: relative;
+  padding: 23px;
+  background:
+    radial-gradient(ellipse at 100% 0%, rgba(229, 72, 93, 0.15), transparent 60%),
+    #141419;
+}
+
+.kindora-journey-heart {
+  display: grid;
+  width: 51px;
+  height: 51px;
+  margin: 21px 0 17px;
+  place-items: center;
+  border: 1px solid rgba(255, 113, 133, 0.24);
+  border-radius: 15px;
+  color: var(--kd-pink);
+  background: rgba(229, 72, 93, 0.1);
+  font-size: 30px;
+}
+
+.kindora-journey-panel h2 {
+  max-width: 260px;
+  margin: 0 0 10px;
+  font: 800 22px/1.4 "Manrope", sans-serif;
+  letter-spacing: -0.7px;
+}
+
+.kindora-journey-panel > p {
+  margin: 0;
+  color: var(--kd-muted);
+  font-size: 11px;
+  line-height: 1.9;
+}
+
+.kindora-journey-divider {
+  height: 1px;
+  margin: 21px 0;
+  background: var(--kd-border);
+}
+
+.kindora-journey-number {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  margin-bottom: 20px;
+}
+
+.kindora-journey-number strong {
+  font: 800 27px "Manrope", sans-serif;
+  letter-spacing: -0.8px;
+}
+
+.kindora-journey-number span {
+  color: var(--kd-muted);
+  font-size: 10px;
+}
+
+.kindora-journey-panel .kindora-primary-btn {
+  width: 100%;
+}
+
+.kindora-recommendations {
+  padding: 21px;
+}
+
+.kindora-recommendations .kindora-panel-heading {
+  margin-bottom: 13px;
+}
+
+.kindora-recommendations .kindora-panel-heading h2 {
+  font-size: 18px;
+}
+
+.kindora-mini-campaign {
+  display: flex;
+  min-width: 0;
+  align-items: center;
+  gap: 11px;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--kd-border);
+}
+
+.kindora-mini-image {
+  display: grid;
+  width: 43px;
+  height: 43px;
+  flex: 0 0 43px;
+  place-items: center;
+  overflow: hidden;
+  border-radius: 10px;
+  color: var(--kd-pink);
+  background: #25171d;
+  font-size: 22px;
+}
+
+.kindora-mini-campaign > div:nth-child(2) {
+  display: flex;
+  min-width: 0;
+  flex: 1;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.kindora-mini-campaign strong {
+  overflow: hidden;
+  font-size: 10px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.kindora-mini-campaign > div:nth-child(2) span {
+  color: var(--kd-muted);
+  font-size: 10px;
+}
+
+.kindora-mini-arrow {
+  color: var(--kd-pink);
+  transition: transform 0.2s ease;
+}
+
+.kindora-mini-campaign:hover .kindora-mini-arrow {
+  transform: translate(3px, -3px);
+}
+
+.kindora-all-campaigns {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: 16px;
+  color: var(--kd-pink) !important;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.kindora-all-campaigns span {
+  font-size: 16px;
+}
+
+/* RESPONSIVE */
+
+@keyframes kd-rise {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes kd-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-9px);
+  }
+}
+
+@keyframes kd-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (max-width: 1050px) {
+  .kindora-campaign-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .kindora-impact-strip {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .kindora-impact-strip > div:nth-child(2) {
+    border-right: 0;
+  }
+
+  .kindora-stats-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .kindora-dashboard-main-grid {
+    grid-template-columns: minmax(0, 1.35fr) minmax(250px, 0.8fr);
+  }
+
+  .kindora-dashboard-hero {
+    min-height: 330px;
+  }
+}
+
+@media (max-width: 760px) {
+  .kindora-topbar,
+  .kindora-hero,
+  .kindora-dashboard-hero,
+  .kindora-impact-strip,
+  .kindora-campaign-section,
+  .kindora-dashboard-content,
+  .kindora-bottom-cta,
+  .kindora-footer {
+    width: calc(100% - 32px);
+  }
+
+  .kindora-topbar {
+    min-height: 74px;
+    flex-wrap: wrap;
+    gap: 8px 15px;
+    padding: 12px 0;
+  }
+
+  .kindora-brand {
+    font-size: 22px;
+  }
+
+  .kindora-brand-icon {
+    width: 31px;
+    height: 31px;
+    border-radius: 10px;
+  }
+
+  .kindora-nav {
+    order: 3;
+    width: 100%;
+    justify-content: space-between;
+    gap: 12px;
+  }
+
+  .kindora-nav a {
+    font-size: 11px;
+  }
+
+  .kindora-nav-cta {
+    padding: 10px;
+    font-size: 10px;
+  }
+
+  .kindora-hero,
+  .kindora-dashboard-hero {
+    grid-template-columns: 1fr;
+    gap: 27px;
+    padding: 49px 0;
+  }
+
+  .kindora-hero h1,
+  .kindora-dashboard-hero h1 {
+    font-size: clamp(42px, 11vw, 59px);
+    letter-spacing: -2.6px;
+  }
+
+  .kindora-hero-content > p,
+  .kindora-dashboard-welcome > p {
+    font-size: 13px;
+  }
+
+  .kindora-hero-art,
+  .kindora-dashboard-art {
+    min-height: 265px;
+    border-radius: 22px;
+  }
+
+  .kindora-impact-strip {
+    padding: 22px;
+    gap: 23px 14px;
+  }
+
+  .kindora-impact-strip > div > strong {
+    font-size: 20px;
+  }
+
+  .kindora-impact-strip > div:not(:last-child) {
+    padding-right: 8px;
+  }
+
+  .kindora-strip-message {
+    gap: 9px;
+  }
+
+  .kindora-strip-heart {
+    width: 35px;
+    height: 35px;
+    flex-basis: 35px;
+    font-size: 18px;
+  }
+
+  .kindora-strip-message strong {
+    font-size: 10px;
+  }
+
+  .kindora-strip-message small {
+    font-size: 10px;
+  }
+
+  .kindora-campaign-section,
+  .kindora-dashboard-content {
+    padding: 65px 0;
+  }
+
+  .kindora-section-heading,
+  .kindora-dashboard-section-title {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 17px;
+  }
+
+  .kindora-section-heading h2,
+  .kindora-dashboard-section-title h2 {
+    font-size: 29px;
+  }
+
+  .kindora-sort {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .kindora-sort select {
+    flex: 1;
+  }
+
+  .kindora-category-list {
+    flex-wrap: nowrap;
+    padding-bottom: 7px;
+    overflow-x: auto;
+    scrollbar-width: thin;
+  }
+
+  .kindora-category {
+    flex: 0 0 auto;
+  }
+
+  .kindora-campaign-grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .kindora-card-image {
+    height: 220px;
+  }
+
+  .kindora-bottom-cta {
+    align-items: flex-start;
+    flex-wrap: wrap;
+    padding: 23px;
+    margin-bottom: 50px;
+  }
+
+  .kindora-cta-heart {
+    width: 48px;
+    height: 48px;
+    flex-basis: 48px;
+    font-size: 29px;
+  }
+
+  .kindora-bottom-cta > div:nth-child(2) {
+    flex: 1;
+    min-width: 170px;
+  }
+
+  .kindora-bottom-cta h2 {
+    font-size: 19px;
+  }
+
+  .kindora-bottom-cta > .kindora-primary-btn {
+    width: 100%;
+    margin: 0;
+  }
+
+  .kindora-footer {
+    align-items: flex-start;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+    padding: 23px 0;
+  }
+
+  .kindora-footer p {
+    margin: 0;
+    line-height: 1.7;
+  }
+
+  .kindora-dashboard-hero {
+    min-height: unset;
+  }
+
+  .kindora-dashboard-content {
+    padding-top: 5px;
+  }
+
+  .kindora-live-badge {
+    font-size: 9px;
+  }
+
+  .kindora-stats-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 11px;
+  }
+
+  .kindora-stat-card {
+    min-height: 151px;
+    padding: 15px;
+  }
+
+  .kindora-stat-top {
+    align-items: flex-start;
+    font-size: 10px;
+  }
+
+  .kindora-stat-icon {
+    width: 28px;
+    height: 28px;
+    flex-basis: 28px;
+  }
+
+  .kindora-stat-card > strong {
+    margin-top: 21px;
+    font-size: clamp(21px, 5vw, 27px);
+  }
+
+  .kindora-stat-card > p {
+    font-size: 9px;
+  }
+
+  .kindora-dashboard-main-grid {
+    grid-template-columns: 1fr;
+    gap: 17px;
+  }
+
+  .kindora-donation-panel {
+    padding: 18px 14px;
+  }
+
+  .kindora-panel-heading h2 {
+    font-size: 18px;
+  }
+
+  .kindora-history-item {
+    gap: 9px;
+  }
+
+  .kindora-history-avatar {
+    width: 39px;
+    height: 39px;
+    flex-basis: 39px;
+  }
+
+  .kindora-history-details > strong,
+  .kindora-history-amount > strong {
+    font-size: 10px;
+  }
+
+  .kindora-history-details > span {
+    font-size: 9px;
+  }
+
+  .kindora-history-link {
+    width: 23px;
+    height: 23px;
+    flex-basis: 23px;
+  }
+
+  .kindora-history-amount {
+    gap: 6px;
+  }
+
+  .kindora-history-count {
+    font-size: 9px;
+  }
+
+  .kindora-recommendations,
+  .kindora-journey-panel {
+    padding: 20px;
+  }
+}
+
+@media (max-width: 390px) {
+  .kindora-topbar,
+  .kindora-hero,
+  .kindora-dashboard-hero,
+  .kindora-impact-strip,
+  .kindora-campaign-section,
+  .kindora-dashboard-content,
+  .kindora-bottom-cta,
+  .kindora-footer {
+    width: calc(100% - 24px);
+  }
+
+  .kindora-nav {
+    gap: 8px;
+  }
+
+  .kindora-nav a {
+    font-size: 10px;
+  }
+
+  .kindora-impact-strip {
+    padding: 17px;
+  }
+
+  .kindora-impact-strip > div > strong {
+    font-size: 18px;
+  }
+
+  .kindora-stat-card {
+    padding: 12px;
+  }
+
+  .kindora-stat-card > strong {
+    font-size: 20px;
+  }
+
+  .kindora-history-item {
+    flex-wrap: wrap;
+  }
+
+  .kindora-history-details {
+    min-width: calc(100% - 60px);
+  }
+
+  .kindora-history-amount {
+    margin-left: 48px;
+    align-items: flex-start;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .kindora-page *,
+  .kindora-page *::before,
+  .kindora-page *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}

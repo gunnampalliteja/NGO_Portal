@@ -1,0 +1,4 @@
+import express from "express";import cors from "cors";import helmet from "helmet";import morgan from "morgan";import rateLimit from "express-rate-limit";
+import {env} from "./config/env.js";import authRoutes from "./routes/auth.routes.js";import campaignRoutes from "./routes/campaign.routes.js";import donationRoutes from "./routes/donation.routes.js";import {errorHandler} from "./middleware/error.js";
+export const app=express();app.use(helmet());app.use(cors({origin:env.CLIENT_URL}));app.use(express.json({limit:"2mb"}));app.use(morgan("dev"));app.use(rateLimit({windowMs:15*60*1000,limit:300}));
+app.get("/api/health",(_req,res)=>res.json({ok:true,service:"ngo-portal-api"}));app.use("/api/auth",authRoutes);app.use("/api/campaigns",campaignRoutes);app.use("/api/donations",donationRoutes);app.use(errorHandler);
